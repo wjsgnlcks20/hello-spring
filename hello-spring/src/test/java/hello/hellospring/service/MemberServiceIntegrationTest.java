@@ -27,13 +27,13 @@ class MemberServiceIntegrationTest {
     void join() {
         // given
         Member member1 = new Member();
-        member1.setName("spring");
+        member1.setName("spring_test1");
 
         // when
         Long saveId = memberService.join(member1);
 
         // then
-        Member result = memberService.findOne(member1.getMember_id()).get(); // 근데 findOne 함수 사용하는게 join 함수 테스트 온전히 하는데 당연히 영향을 주지않나.
+        Member result = memberService.findOne(member1.getid()).get(); // 근데 findOne 함수 사용하는게 join 함수 테스트 온전히 하는데 당연히 영향을 주지않나.
         assertThat(result.getName()).isEqualTo(member1.getName());
     }
 
@@ -42,8 +42,8 @@ class MemberServiceIntegrationTest {
         //given
         Member member1 = new Member();
         Member member2 = new Member();
-        member1.setName("spring");
-        member2.setName("spring");
+        member1.setName("spring_test1");
+        member2.setName("spring_test1");
         memberService.join(member1);
 
         //when //then

@@ -1,6 +1,15 @@
 package hello.hellospring.doamin;
 
+
+import org.springframework.context.annotation.Configuration;
+
+import javax.persistence.*;
+
+@Entity
 public class Member{
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long member_id;
     private String name;
 
@@ -10,10 +19,10 @@ public class Member{
     public String getName(){
         return this.name;
     }
-    public void setMember_id(long id){
+    public void setid(long id){
         this.member_id = id;
     }
-    public long getMember_id(){
+    public long getid(){
         return this.member_id;
     }
 }

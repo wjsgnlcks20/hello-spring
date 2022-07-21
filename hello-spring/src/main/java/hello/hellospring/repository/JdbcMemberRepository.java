@@ -33,7 +33,7 @@ public class JdbcMemberRepository implements MemberRepository {
             rs = pstmt.getGeneratedKeys();
 
             if(rs.next()){
-                member.setMember_id(rs.getLong(1));
+                member.setid(rs.getLong(1));
                 return member;
             } else {
                 return null;
@@ -63,7 +63,7 @@ public class JdbcMemberRepository implements MemberRepository {
 
             if(rs.next()){
                 Member member = new Member();
-                member.setMember_id(rs.getLong("id"));
+                member.setid(rs.getLong("id"));
                 member.setName(rs.getString("name"));
                 return Optional.of(member);
             } else {
@@ -94,7 +94,7 @@ public class JdbcMemberRepository implements MemberRepository {
 
             if(rs.next()){
                 Member member = new Member();
-                member.setMember_id(rs.getLong("id"));
+                member.setid(rs.getLong("id"));
                 member.setName(rs.getString("name"));
                 return Optional.of(member);
             }
@@ -126,7 +126,7 @@ public class JdbcMemberRepository implements MemberRepository {
             List<Member> members = new ArrayList<>();
             while(rs.next()){
                 Member member = new Member();
-                member.setMember_id(rs.getLong("id"));
+                member.setid(rs.getLong("id"));
                 member.setName(rs.getString("name"));
                 members.add(member);
             }

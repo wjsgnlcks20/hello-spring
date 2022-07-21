@@ -33,7 +33,7 @@ public class JdbcMemberRepositoryAnswer implements MemberRepository{
             rs = pstmt.getGeneratedKeys();
 
             if(rs.next()){
-                member.setMember_id(rs.getLong(1));
+                member.setid(rs.getLong(1));
             } else {
                 throw new SQLException("id 조회 실패");
             }
@@ -64,7 +64,7 @@ public class JdbcMemberRepositoryAnswer implements MemberRepository{
             if(rs.next()){
                 Member member = new Member();
                 member.setName(rs.getString(1));
-                member.setMember_id(rs.getLong(1));
+                member.setid(rs.getLong(1));
                 return Optional.of(member);
             } else{
                 return Optional.empty();
@@ -94,7 +94,7 @@ public class JdbcMemberRepositoryAnswer implements MemberRepository{
 
             if(rs.next()){
                 Member member = new Member();
-                member.setMember_id(rs.getLong("id"));;
+                member.setid(rs.getLong("id"));;
                 member.setName(rs.getString("name"));
                 return Optional.of(member);
             } else {
@@ -127,7 +127,7 @@ public class JdbcMemberRepositoryAnswer implements MemberRepository{
 
             while (rs.next()){
                 Member member = new Member();
-                member.setMember_id(rs.getLong("id"));
+                member.setid(rs.getLong("id"));
                 member.setName(rs.getString("name"));
                 members.add(member);
             }

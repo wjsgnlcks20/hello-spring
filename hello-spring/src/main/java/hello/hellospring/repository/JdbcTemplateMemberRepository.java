@@ -30,7 +30,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
         jdbcInsert.withTableName("member").usingGeneratedKeyColumns("id");
         Map<String, Object> parameters = new HashMap<>();
         Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
-        member.setMember_id(key.longValue());
+        member.setid(key.longValue());
         return member;
     }
 
@@ -59,7 +59,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
             @Override
             public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Member member = new Member();
-                member.setMember_id(rs.getLong("id"));
+                member.setid(rs.getLong("id"));
                 member.setName(rs.getString("name"));
                 return member;
             }
